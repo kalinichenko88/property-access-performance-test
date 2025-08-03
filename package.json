@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
-    "build": "biome check . && tsc && vite build",
+    "build": "biome check . && npm run generate-data && tsc && vite build",
     "preview": "vite preview",
     "generate-data": "tsx src/bin/generate-data.ts"
   },
