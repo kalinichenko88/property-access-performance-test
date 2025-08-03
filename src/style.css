@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+body {
+  color: var(--color-gray-700);
+}
+
+code {
+  color: var(--color-red-400);
+}
+
+button {
+  @apply cursor-pointer px-4 py-2 text-white rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-small {
+  @apply px-2 py-1 text-sm;
+}
+
+.btn-blue {
+  @apply bg-blue-500 hover:bg-blue-600 disabled:bg-blue-500;
+}
+
+.btn-green {
+  @apply bg-green-500 hover:bg-green-600 disabled:bg-green-500;
+}
+
+.btn-red {
+  @apply bg-red-500 hover:bg-red-600 disabled:bg-red-500;
+}
+
+.btn-gray {
+  @apply bg-gray-500 hover:bg-gray-600 disabled:bg-gray-500;
+}

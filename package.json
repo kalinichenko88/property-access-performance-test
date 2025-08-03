@@ -1,0 +1,27 @@
+{
+  "name": "property-access-performance-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "build": "biome check . && tsc && vite build",
+    "preview": "vite preview",
+    "generate-data": "tsx src/bin/generate-data.ts"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "js-convert-case": "^4.2.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.3",
+    "@faker-js/faker": "^9.9.0",
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  }
+}
