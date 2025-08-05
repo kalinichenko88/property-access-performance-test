@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/property-access-performance-test/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Access Performance Test</title>
+    <script type="module" crossorigin src="/property-access-performance-test/assets/index-BteyOr0O.js"></script>
+    <link rel="stylesheet" crossorigin href="/property-access-performance-test/assets/index-CaTunUg1.css">
+  </head>
+  <body>
+    <div class="bg-gray-100 p-6 h-screen w-screen">
+      <div class="max-w-4xl h-[95vh] overflow-y-auto mx-auto bg-white shadow rounded-lg p-6 space-y-4 flex flex-col">
+        <header class="bg-gray-600 text-white text-center -mx-6 -mt-6 py-4">
+          <h1 class="text-2xl font-bold text-gray-100">Performance Test</h1>
+        </header>
+
+        <h2 class="text-lg font-bold text-gray-700">Problem & Test Overview</h2>
+        <p class="text-gray-700">
+          We need to compare the runtime performance of three different ways to access object properties in a large
+          dataset of JavaScript objects. Each object contains 100 fields named in `snake_case`. The three approaches
+          are:
+        </p>
+
+        <ol class="list-decimal list-inside text-gray-700">
+          <li>
+            <strong>Direct snake_case access</strong> - accessing properties by their original
+            <code>snake_case</code> keys (e.g. <code>obj['first_name']</code>).
+          </li>
+          <li>
+            <strong>Pre-converted camelCase access</strong> - before running the tests, all
+            <code>snake_case</code> fields are converted once to <code>camelCase</code> and the objects overwritten
+            accordingly; access then uses the new <code>camelCase</code> keys (e.g. <code>obj['firstName']</code>).
+          </li>
+          <li>
+            <strong>Proxy wrapper</strong> - wrapping each object in a <code>Proxy</code> that intercepts property
+            lookups and transparently maps <code>camelCase</code> accessors to the underlying <code>snake_case</code>
+            fields.
+          </li>
+        </ol>
+
+        <hr class="border-gray-200" />
+
+        <div id="dataset-select" class="items-center space-x-4 flex-wrap hidden">
+          <label for="dataset" class="font-medium w-1/6">Dataset:</label>
+          <select id="dataset" class="border rounded p-1">
+            <option value="1000">1 000</option>
+            <option value="5000">5 000</option>
+            <option value="10000">10 000</option>
+          </select>
+        </div>
+
+        <div id="access-select" class="items-center space-x-4 flex-wrap hidden">
+          <label for="access" class="font-medium w-1/6">Access:</label>
+          <select id="access" class="border rounded p-1">
+            <option value="snake">Snake Case</option>
+            <option value="camel">Camel Case</option>
+            <option value="proxy">Proxy</option>
+          </select>
+        </div>
+
+        <div id="buttons" class="space-x-4 hidden flex-wrap">
+          <button id="btn-read-seq" class="btn-blue">Read Seq</button>
+          <button id="btn-read-rnd" class="btn-green">Read Random</button>
+          <button id="btn-write" class="btn-red">Write</button>
+        </div>
+
+        <div id="loading" class="flex-auto items-center justify-center flex">
+          <div class="relative">
+            <div class="w-8 h-8 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
+            </div>
+          </div>
+          <span class="ml-3 text-gray-600 font-medium" id="loading-text">Loading datasets...</span>
+        </div>
+
+        <pre id="log" class="bg-gray-100 p-2 rounded overflow-auto text-sm hidden flex-auto min-h-2/4"></pre>
+
+        <div id="export-buttons" class="space-x-4 hidden flex-wrap">
+          <button id="btn-export-json" class="btn-gray btn-small">Export JSON</button>
+          <button id="btn-export-csv" class="btn-gray btn-small">Export CSV</button>
+          <button id="btn-clear-results" class="btn-gray btn-small">Clear Results</button>
+        </div>
+
+        <footer class="bg-gray-600 text-white text-center py-4 mt-6 -mx-6 -mb-6">
+          <p>
+            &copy; 2025
+            <a href="mailto:ivan@kalinichenko.dev" class="text-blue-300 hover:text-blue-100 underline"
+              >ivan@kalinichenko.dev</a
+            >
+          </p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>
