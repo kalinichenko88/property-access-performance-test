@@ -57,7 +57,7 @@
           </select>
         </div>
 
-        <div id="buttons" class="space-x-4 hidden">
+        <div id="buttons" class="space-x-4 hidden flex-wrap">
           <button id="btn-read-seq" class="btn-blue">Read Seq</button>
           <button id="btn-read-rnd" class="btn-green">Read Random</button>
           <button id="btn-write" class="btn-red">Write</button>
@@ -73,9 +73,9 @@
           <span class="ml-3 text-gray-600 font-medium" id="loading-text">Loading datasets...</span>
         </div>
 
-        <pre id="log" class="bg-gray-100 p-2 rounded overflow-auto text-sm hidden flex-auto"></pre>
+        <pre id="log" class="bg-gray-100 p-2 rounded overflow-auto text-sm hidden flex-auto min-h-2/4"></pre>
 
-        <div id="export-buttons" class="space-x-4 hidden">
+        <div id="export-buttons" class="space-x-4 hidden flex-wrap">
           <button id="btn-export-json" class="btn-gray btn-small">Export JSON</button>
           <button id="btn-export-csv" class="btn-gray btn-small">Export CSV</button>
           <button id="btn-clear-results" class="btn-gray btn-small">Clear Results</button>
